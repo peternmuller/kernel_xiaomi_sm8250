@@ -65,13 +65,13 @@ jobs:
         uses: actions/cache@v5
         with:
           path: ${{ steps.workspace.outputs.workspace-folder }}/clang
-          key: -clang-r596125
+          key: -clang-r563880c
 
       - name: Prepare the build environment
         id: tools
         run: |
           if [[ "${{ steps.cache-clang.outputs.cache-hit }}" != 'true' ]]; then
-            wget -nv https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/9b144befdfd93b90e02c663504fb9f4b95f9faf8/clang-r596125.tar.gz -O clang.tar.gz
+            wget -nv https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/531a564ba5426707dee226eccb19f104a7af5a5f/clang-r563880c.tar.gz -O clang.tar.gz
             tar -xzf clang.tar.gz -C clang
           fi
           echo "tools-folder=$(pwd)" >> $GITHUB_OUTPUT
